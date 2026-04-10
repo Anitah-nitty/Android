@@ -18,6 +18,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -38,12 +39,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 
 import com.anitah.sokohub.R
+import com.anitah.sokohub.navigation.ROUT_HOME
+import com.anitah.sokohub.navigation.ROUT_REGISTER
 
 @Composable
-fun LoginScreen (){
+fun LoginScreen (navController: NavController){
 
 
 
@@ -51,7 +56,7 @@ fun LoginScreen (){
 
         modifier = Modifier
             .fillMaxSize()
-            .paint(painter = painterResource(R.drawable.ic_launcher_background), contentScale = ContentScale.FillBounds),
+            .paint(painter = painterResource(R.drawable.register), contentScale = ContentScale.FillBounds),
 
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
@@ -61,7 +66,7 @@ fun LoginScreen (){
     ) {
 
         Image(
-            painter= painterResource(R.drawable.ic_launcher_foreground),
+            painter= painterResource(R.drawable.product),
             contentDescription = "register",
             modifier = Modifier.size(200.dp),
 
@@ -120,7 +125,7 @@ fun LoginScreen (){
         Spacer(modifier = Modifier.width(10.dp))
         Button(
             shape = RoundedCornerShape(10.dp),
-            colors = ButtonDefaults.buttonColors(contentColor = Blue),
+            colors = ButtonDefaults.buttonColors(),
             modifier = Modifier.width(350.dp),
             onClick = {}
 
@@ -132,12 +137,25 @@ fun LoginScreen (){
                 )
         }
         Spacer(modifier = Modifier.width(10.dp))
-        Text(
-            text = "Don't have an account?? Register",
-            fontSize = 12.sp,
+
+        TextButton(onClick = {navController.navigate(ROUT_REGISTER)}) {
+            Text(
+                text = "Don't have an account?? Register",
+                fontSize = 12.sp,
 
 
-            )
+                )
+        }
+
+        TextButton(onClick = {navController.navigate(ROUT_HOME)}) {
+            Text(
+                text = "Go To Home",
+                fontSize = 12.sp,
+
+
+                )
+        }
+
 
 
 
@@ -178,6 +196,6 @@ fun LoginScreen (){
 @Preview(showBackground = true)
 @Composable
 fun LoginScreenPreview(){
-    LoginScreen()
+    LoginScreen(rememberNavController())
 
 }

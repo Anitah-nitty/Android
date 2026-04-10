@@ -49,6 +49,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.anitah.sokohub.R
+import com.anitah.sokohub.navigation.ROUT_INTENT
 import com.anitah.sokohub.ui.theme.Newblue
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -153,7 +154,7 @@ fun HomeScreen(navController: NavController){
                     modifier = Modifier.padding(start = 20.dp)
                 )
                 Button(
-                    onClick = {},
+                    onClick = {navController.navigate(ROUT_INTENT)},
                     colors = ButtonDefaults.buttonColors(Newblue),
                     shape = RoundedCornerShape(10.dp),
                     modifier = Modifier.padding(start = 20.dp)
@@ -188,7 +189,7 @@ fun HomeScreen(navController: NavController){
                     modifier = Modifier.padding(start = 20.dp)
                 )
                 Button(
-                    onClick = {},
+                    onClick = {navController.navigate(ROUT_INTENT)},
                     colors = ButtonDefaults.buttonColors(Newblue),
                     shape = RoundedCornerShape(10.dp),
                     modifier = Modifier.padding(start = 20.dp)
@@ -222,7 +223,7 @@ fun HomeScreen(navController: NavController){
                     modifier = Modifier.padding(start = 20.dp)
                 )
                 Button(
-                    onClick = {},
+                    onClick = {navController.navigate(ROUT_INTENT)},
                     colors = ButtonDefaults.buttonColors(Newblue),
                     shape = RoundedCornerShape(10.dp),
                     modifier = Modifier.padding(start = 20.dp)

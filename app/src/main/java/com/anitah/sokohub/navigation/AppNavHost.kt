@@ -6,12 +6,15 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.Moses.W.N.sokohub.ui.screens.auth.LoginScreen
 import com.anitah.sokohub.ui.screens.about.AboutScreen
+import com.anitah.sokohub.ui.screens.auth.RegisterScreen
 
 import com.anitah.sokohub.ui.screens.home.HomeScreen
-import com.anitah.sokohub.ui.screens.login.LoginScreen
+import com.anitah.sokohub.ui.screens.intent.IntentScreen
+
 import com.anitah.sokohub.ui.screens.onboarding.OnBoardingScreen
-import com.anitah.sokohub.ui.screens.register.RegisterScreen
+
 import com.anitah.sokohub.ui.screens.service.ServiceScreen
 
 @Composable
@@ -46,6 +49,12 @@ fun AppNavHost(
         composable(ROUT_ONBOARDING) {
             OnBoardingScreen(navController)
         }
+
+        composable(ROUT_INTENT) {
+            IntentScreen(navController)
+        }
+
+
 
 
     }
