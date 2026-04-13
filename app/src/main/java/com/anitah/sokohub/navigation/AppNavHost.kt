@@ -14,14 +14,16 @@ import com.anitah.sokohub.ui.screens.home.HomeScreen
 import com.anitah.sokohub.ui.screens.intent.IntentScreen
 
 import com.anitah.sokohub.ui.screens.onboarding.OnBoardingScreen
+import com.anitah.sokohub.ui.screens.scaffold.ScaffoldScreen
 
 import com.anitah.sokohub.ui.screens.service.ServiceScreen
+import com.anitah.sokohub.ui.screens.splash.SplashScreen
 
 @Composable
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_ONBOARDING
+    startDestination: String = ROUT_SPLASH
 ) {
 
     NavHost(
@@ -53,6 +55,19 @@ fun AppNavHost(
         composable(ROUT_INTENT) {
             IntentScreen(navController)
         }
+
+        composable(ROUT_SPLASH) {
+            SplashScreen(navController)
+        }
+
+        composable(ROUT_Scaffold) {
+            ScaffoldScreen(navController)
+        }
+
+
+
+
+
 
 
 
