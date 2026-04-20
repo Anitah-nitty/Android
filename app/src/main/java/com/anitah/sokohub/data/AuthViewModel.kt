@@ -19,7 +19,7 @@ class AuthViewModel(var navController: NavController, var context: Context){
 
     fun signup(username:String, email:String, password:String, confirmpassword:String){
 
-        if (email.isBlank() || password.isBlank() || confirmpassword.isBlank()) {
+        if (email.isBlank() || password.isBlank() || username.isBlank() || confirmpassword.isBlank()) {
             Toast.makeText(context,"Please email and password cannot be blank", Toast.LENGTH_LONG).show()
         } else if (password != confirmpassword) {
             Toast.makeText(context,"Password do not match", Toast.LENGTH_LONG).show()
