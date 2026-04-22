@@ -3,9 +3,11 @@ package com.anitah.sokohub.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.Moses.W.N.sokohub.ui.screens.auth.LoginScreen
 import com.anitah.sokohub.ui.screens.about.AboutScreen
 import com.anitah.sokohub.ui.screens.auth.RegisterScreen
@@ -14,6 +16,9 @@ import com.anitah.sokohub.ui.screens.home.HomeScreen
 import com.anitah.sokohub.ui.screens.intent.IntentScreen
 
 import com.anitah.sokohub.ui.screens.onboarding.OnBoardingScreen
+import com.anitah.sokohub.ui.screens.products.AddProductScreen
+import com.anitah.sokohub.ui.screens.products.UpdateProductScreen
+import com.anitah.sokohub.ui.screens.products.ViewProductScreen
 import com.anitah.sokohub.ui.screens.scaffold.ScaffoldScreen
 
 import com.anitah.sokohub.ui.screens.service.ServiceScreen
@@ -63,6 +68,19 @@ fun AppNavHost(
         composable(ROUT_Scaffold) {
             ScaffoldScreen(navController)
         }
+
+        composable(ROUTE_ADD_PRODUCT) { AddProductScreen(navController) }
+
+        composable(ROUTE_VIEW_PRODUCTS) { ViewProductScreen(navController) }
+
+        composable(
+            ROUTE_UPDATE_PRODUCT,
+            arguments = listOf(navArgument("productId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val productId = backStackEntry.arguments?.getString("productId")!!
+            UpdateProductScreen(navController, productId)
+        }
+
 
 
 
